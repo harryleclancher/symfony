@@ -1,0 +1,26 @@
+
+
+
+
+<title>{% block title%} EH Industries : {% endblock %}</title>
+
+
+
+
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+
+    <h1>Hello</h1>
+
+    {% if app.user %}
+        <p>Bonjour {{ app.user.prenom }} vous êtes un {{ app.user.roles[0] }}, binevenue à la page
+        {% block nompage %}{% endblock %}
+        </p>
+    {% else %}
+        <p>Bonjour, bienvenue sur le site EH Industry, vous êtes un anonyme </p>
+        <p><a href="security/login">Se connecter</a></p>
+    {% endif %}
+

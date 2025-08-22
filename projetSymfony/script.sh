@@ -1,0 +1,13 @@
+composer req profiler;
+composer req annotations;
+composer req maker;
+composer req symfony/debug-pack;
+composer req twig;
+composer req asset;
+composer req orm;
+composer req orm-fixtures;
+composer req form;
+composer req validator;
+composer req security;
+composer req symfony/expression-language;
+composer req translation;

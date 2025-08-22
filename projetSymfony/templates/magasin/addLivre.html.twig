@@ -1,0 +1,14 @@
+{% extends  'base.html.twig' %}
+
+{% block title %}{{ parent() }} : form{% endblock %}
+
+{% block titre_principal %}Vue "film_add" : exercices formulaires{% endblock %}
+
+{% block body %}
+    <p><a href="/magasin/listProd">Retour à la liste des livres</a> </p>
+    <h2>Ajout d'un film</h2>
+
+    {{ form(formlivre)}}
+    <h2>dump</h2>
+    {{ dump(formlivre) }}
+{% endblock %}

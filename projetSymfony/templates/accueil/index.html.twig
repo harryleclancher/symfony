@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{  parent() }}-Accueil{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="Welcome">
+    <h1>Hello</h1>
+
+    {% if app.user %}
+        <p>Bonjour {{ app.user.prenom }} vous êtes un {{ app.user.roles[0] }}</p>
+        <ul>
+            <li><a href="/profil/view/{{ app.user.id }}">Mon Profil</a></li>
+            <li><a href="/magasin/listProd">Liste des produits</a></li>
+            <li><a>Mon Panier</a></li>
+            <li><a href="/profil/list">Gestion utilisateur</a></li>
+            <li><a href="/magasin/add">Ajout Produit</a></li>
+            <li><a href="/logout">Déconnexion</a></li>
+        </ul>
+    {% else %}
+        <p>Bonjour, bienvenue sur le site EH Industry, vous êtes un anonyme </p>
+        <p><a href="security/login">Se connecter</a></p>
+    {% endif %}
+</div>
+{% endblock %}

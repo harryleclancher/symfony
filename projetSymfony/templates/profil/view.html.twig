@@ -1,0 +1,27 @@
+{% extends  'base.html.twig' %}
+
+{% block title %}{{ parent() }} : doctrine{% endblock %}
+
+{% block titre_principal %}Vue "view" : exercices Doctrine{% endblock %}
+
+{% block vue %}
+    <h2>Détail du profil {{ id }}</h2>
+
+    <p><a href="/profil/list">Retour à la liste des Profils</a> </p>
+
+    {% if profil is null %}
+        <p>Le profil {{ id }} n'existe pas</p>
+    {% else %}
+        <ul>
+            <li>id : {{ profil.id }}</li>
+            <li>login : {{ profil.login }}</li>
+            <li>Mot de passe : {{ profil.password }}</li>
+            <li>nom : {{ profil.nom}}</li>
+            <li>prenom : {{ profil.prenom }}</li>
+            <li>date: {{ profil.dateNaissance|date("Y-M-D") }}</li>
+        </ul>
+    {% endif %}
+
+    <h2>dump</h2>
+    {{ dump(profil) }}
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends  'base.html.twig' %}
+
+{% block title %}EH industry - {% endblock %}
+
+{% block titre_principal %}Vue "list" : exercices Doctrine{% endblock %}
+
+{% block vue %}
+    <h2>Liste de tous les livres</h2>
+    <p><a href="/">Retour accueil</a></p>
+    <table>
+
+        <tr><th>id</th><th>titre</th><th></th></tr>
+        {% for livre in Livres %}
+            {% set urlView = path('app_magasin_list', { 'id' : livre.id }) %}
+            {% set urlEdit = path('app_magasin_edit', { 'id' : livre.id }) %}
+             {% set urlDelete = path('app_magasin_delete', { 'id' : livre.id }) %}
+            <tr>
+                <td>{{ livre.id }}</td>
+                <td><a href="{{ urlView }}">{{ livre.Libelle }}</a></td>
+                <td><a href="{{ urlEdit }}">edit</a></td>
+                  <td><a href="{{ urlDelete }}">delete</a> (! pas de confirmation)</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h2>dump</h2>
+    {{ dump(Livres) }}
+{% endblock %}

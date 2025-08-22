@@ -1,0 +1,26 @@
+{% extends  'base.html.twig' %}
+
+{% block title %}EH industry - {% endblock %}
+
+{% block titre_principal %}Vue "list" : exercices Doctrine{% endblock %}
+
+{% block vue %}
+    <h2>Liste de tous les profils</h2>
+    <table>
+        <tr><th>id</th><th>titre</th><th></th></tr>
+        {% for profil in Profils %}
+            {% set urlView = path('app_profil_view', { 'id' : profil.id }) %}
+            {% set urlEdit = path('app_profil_edit', { 'id' : profil.id }) %}
+            {% set urlDelete = path('app_profil_delete', { 'id' : profil.id }) %}
+            <tr>
+                <td>{{ profil.id }}</td>
+                <td><a href="{{ urlView }}">{{ profil.login }}</a></td>
+                  <td><a href="{{ urlDelete }}">delete</a> (! pas de confirmation)</td>
+                <td><a href="{{ urlEdit }}">edit</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h2>dump</h2>
+    {{ dump(Profils) }}
+{% endblock %}

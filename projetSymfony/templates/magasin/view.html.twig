@@ -1,0 +1,25 @@
+{% extends  'base.html.twig' %}
+
+{% block title %}{{ parent() }} : doctrine{% endblock %}
+
+{% block titre_principal %}Magasin{% endblock %}
+
+{% block vue %}
+    <h2>Détail du profil {{ id }}</h2>
+
+    <p><a href="/magasin/listProd">Retour à la liste des livres</a> </p>
+
+    {% if livre is null %}
+        <p>Le livre {{ id }} n'existe pas</p>
+    {% else %}
+        <ul>
+            <li>id : {{ livre.id }}</li>
+            <li>Libellé : {{ livre.Libelle }}</li>
+            <li>Prix Unitaire : {{ livre.prixunitaire }}</li>
+            <li>Quantité en stock : {{ livre.quantite}}</li>
+        </ul>
+    {% endif %}
+
+    <h2>dump</h2>
+    {{ dump(livre) }}
+{% endblock %}
